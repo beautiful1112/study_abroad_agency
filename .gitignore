@@ -29,3 +29,9 @@ pnpm-debug.log*
 
 # MCP config
 .mcp.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
