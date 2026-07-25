@@ -1,0 +1,320 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import FaqAccordion from "../FaqAccordion.astro";
+import Button from "../Button.astro";
+import Icon from "../Icon.astro";
+import Link from "../Link.astro";
+import Card from "../Card.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import heroMain from "../../assets/hero-main.jpg";
+import professionalCare from "../../assets/professional-care.jpg";
+import teamMember from "../../assets/team-member.jpg";
+import heroServices from "../../assets/hero-services.jpg";
+import studyImage from "../../assets/professional-staff.jpg";
+import migrationImage from "../../assets/about-main.jpg";
+import familyImage from "../../assets/team-professionals.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = t(locale);
+const h = dict.home;
+const serviceImages = [studyImage, migrationImage, familyImage];
+---
+
+<Layout locale={locale} title={h.metaTitle} description={h.metaDescription}>
+  <section
+    class="relative min-h-[75vh] md:min-h-[85vh] flex items-end md:items-center py-16 md:py-24"
+    role="banner"
+    aria-label="Hero"
+  >
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={heroMain}
+        alt=""
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        width={1920}
+        height={1080}
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-theme-primary-darker/90 via-theme-primary-darker/70 to-theme-primary/35"
+      >
+      </div>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="max-w-3xl text-white text-center md:text-left mx-auto md:mx-0">
+        <p
+          class="font-display text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 md:mb-4 animate-fade-in"
+        >
+          {h.brandEyebrow}
+        </p>
+        <h1
+          class="text-3xl md:text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.15] mb-4 md:mb-5 tracking-tight text-white/95"
+        >
+          {h.heroTitle}
+        </h1>
+        <p
+          class="text-base md:text-lg mb-8 md:mb-10 opacity-95 leading-relaxed max-w-xl mx-auto md:mx-0"
+        >
+          {h.heroSubtitle}
+        </p>
+        <div class="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
+          <Button
+            variant="white"
+            size="lg"
+            href={localizedPath(locale, "/contact/")}
+            class="hover:shadow-xl hover:scale-105"
+          >
+            {h.ctaPrimary}
+          </Button>
+          <Button
+            variant="primary"
+            size="lg"
+            href={localizedPath(locale, "/careers/")}
+            class="ring-2 ring-white/20 hover:shadow-xl hover:scale-105"
+          >
+            {h.ctaSecondary}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-theme-surface">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <p
+            class="text-sm font-medium tracking-widest uppercase text-theme-primary mb-4"
+          >
+            {h.aboutEyebrow}
+          </p>
+          <h2 class="mb-6">{h.aboutTitle}</h2>
+          <p class="text-theme-text-secondary text-lg leading-relaxed mb-6">
+            {h.aboutBody}
+          </p>
+          <ul class="space-y-5 mb-6">
+            {
+              h.aboutPoints.map((point) => (
+                <li class="flex items-start group">
+                  <div class="flex-shrink-0 w-7 h-7 rounded-full bg-theme-primary-lighter/30 flex items-center justify-center mr-4 mt-0.5 group-hover:bg-theme-primary transition-colors duration-300">
+                    <Icon
+                      name="check"
+                      size="sm"
+                      class="text-theme-primary group-hover:text-white transition-colors duration-300"
+                    />
+                  </div>
+                  <span class="text-theme-text-secondary text-lg">{point}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="text-center md:text-left">
+            <Link href={localizedPath(locale, "/about/")}>{h.aboutLink}</Link>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src={professionalCare}
+                alt=""
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="absolute -bottom-4 -left-4 w-24 h-24 bg-theme-primary-lighter/30 rounded-2xl -z-10"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section bg-gradient-to-b from-theme-primary-lighter/15 via-theme-primary-lighter/5 to-theme-surface"
+  >
+    <div class="container">
+      <div class="text-center mb-12">
+        <p
+          class="text-sm font-medium tracking-widest uppercase text-theme-primary mb-4"
+        >
+          {h.servicesEyebrow}
+        </p>
+        <h2>{h.servicesTitle}</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {
+          h.serviceCards.map((service, index) => (
+            <Card
+              title={service.title}
+              summary={service.summary}
+              image={serviceImages[index]}
+              link={localizedPath(locale, "/services/")}
+              linkLabel={locale === "zh" ? "了解更多" : "Learn more"}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-theme-surface pt-4 pb-12 md:pt-8 md:pb-16">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-theme-text-primary mb-4">
+          {h.statsTitle}
+        </h2>
+        <p class="text-lg text-theme-text-secondary">{h.statsSubtitle}</p>
+      </div>
+
+      <div class="mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+        <div class="lg:w-1/2">
+          <div class="relative">
+            <div
+              class="aspect-[16/9] rounded-[50%] overflow-hidden shadow-2xl ring-1 ring-black/5"
+            >
+              <Image
+                src={teamMember}
+                alt=""
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 flex justify-between items-center px-4 stats-container"
+              >
+                <div
+                  class="stats-circle w-28 h-28 md:w-36 md:h-36 bg-theme-primary/95 rounded-full flex flex-col items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-2xl ring-4 ring-white/30"
+                >
+                  <span class="text-lg md:text-xl font-bold">{h.statsLeft}</span>
+                  <span class="text-xs mt-1 font-medium text-center px-2">
+                    {h.statsLeftLabel}
+                  </span>
+                </div>
+                <div
+                  class="stats-circle w-28 h-28 md:w-36 md:h-36 bg-theme-accent-orange/95 rounded-full flex flex-col items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-2xl ring-4 ring-white/30"
+                >
+                  <span class="text-lg md:text-xl font-bold">{h.statsRight}</span>
+                  <span class="text-xs mt-1 font-medium text-center px-2">
+                    {h.statsRightLabel}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2 space-y-6">
+          <div class="prose prose-lg max-w-none text-theme-text-secondary">
+            <p class="text-lg leading-relaxed">{h.statsBody1}</p>
+            <p class="text-lg leading-relaxed">{h.statsBody2}</p>
+          </div>
+          <div class="pt-6">
+            <Link href={localizedPath(locale, "/about/")}>{h.statsLink}</Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section bg-gradient-to-b from-theme-surface-muted to-theme-surface"
+  >
+    <div class="container">
+      <div class="narrow mx-auto">
+        <div class="text-center mb-12">
+          <p
+            class="text-sm font-medium tracking-widest uppercase text-theme-primary mb-4"
+          >
+            {h.faqEyebrow}
+          </p>
+          <h2>{h.faqTitle}</h2>
+        </div>
+        <FaqAccordion items={dict.faqs.slice(0, 4)} />
+        <div class="text-center mt-10">
+          <Link href={localizedPath(locale, "/info/")}>{h.faqLink}</Link>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 lg:py-28 overflow-hidden">
+    <div class="absolute inset-0">
+      <Image
+        src={heroServices}
+        alt=""
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-theme-primary-darker/90"></div>
+    </div>
+    <div class="relative container">
+      <div class="max-w-2xl mx-auto text-center text-white">
+        <h2 class="mb-6">{h.ctaTitle}</h2>
+        <p class="text-lg mb-10 text-white/80">{h.ctaBody}</p>
+        <Button variant="white" href={localizedPath(locale, "/contact/")}>
+          {h.ctaButton}
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .stats-circle {
+    opacity: 0;
+    animation: fadeInScale 0.8s ease-out forwards;
+    animation-play-state: paused;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const circles = entry.target.querySelectorAll(".stats-circle");
+          circles.forEach((circle) => {
+            (circle as HTMLElement).style.animationPlayState = "running";
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  function initStatsAnimation() {
+    const section = document.querySelector(".stats-container");
+    if (section) {
+      const circles = section.querySelectorAll(".stats-circle");
+      circles.forEach((circle) => {
+        (circle as HTMLElement).style.animationPlayState = "paused";
+      });
+      statsObserver.observe(section);
+    }
+  }
+
+  initStatsAnimation();
+  document.addEventListener("astro:page-load", initStatsAnimation);
+</script>

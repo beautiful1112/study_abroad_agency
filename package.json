@@ -1,0 +1,40 @@
+{
+  "name": "rooute-edu-immi",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "npm@10.9.2",
+  "description": "Rooute Education & Migration (趣袋鼠) — bilingual Australian study-abroad and immigration agency site built with Astro.",
+  "keywords": [
+    "astro",
+    "immigration",
+    "study-abroad",
+    "australia",
+    "bilingual",
+    "static-site",
+    "cloudflare-pages"
+  ],
+  "author": "Rooute Education & Migration",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "test": "npm run check && npm run build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.0.6",
+    "astro-navbar": "^2.4.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.2",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3"
+  }
+}

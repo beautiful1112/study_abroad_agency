@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../PageHero.astro";
+import CallToActionSection from "../CallToActionSection.astro";
+import Heading from "../Heading.astro";
+import FaqAccordion from "../FaqAccordion.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import faqHero from "../../assets/service-detail.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = t(locale);
+const i = dict.info;
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: dict.faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer.replace(/<[^>]*>/g, ""),
+    },
+  })),
+};
+---
+
+<Layout locale={locale} title={i.metaTitle} description={i.metaDescription}>
+  <PageHero
+    title={i.heroTitle}
+    description={i.heroDescription}
+    image={faqHero}
+  />
+
+  <section
+    class="section bg-gradient-to-b from-theme-surface-muted to-theme-surface"
+  >
+    <div class="container">
+      <div class="narrow mx-auto text-center mb-8">
+        <Heading level="h2" align="center">{i.sectionTitle}</Heading>
+      </div>
+      <div class="max-w-5xl mx-auto">
+        <FaqAccordion items={dict.faqs} />
+      </div>
+    </div>
+  </section>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(faqLd)}></script>
+
+  <CallToActionSection
+    heading={i.ctaHeading}
+    subheading={i.ctaSubheading}
+    primaryButtonText={i.ctaButton}
+    primaryButtonLink={localizedPath(locale, "/contact/")}
+  />
+</Layout>

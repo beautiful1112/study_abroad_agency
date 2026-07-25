@@ -1,0 +1,32 @@
+{
+  "domain": "https://rooute-edu-immi.com",
+  "brand": {
+    "zh": "趣袋鼠",
+    "en": "Rooute Education & Migration",
+    "enShort": "Rooute"
+  },
+  "tagline": {
+    "zh": "出国 · 留学 · 移民",
+    "en": "Going Abroad · Study Abroad · Migration"
+  },
+  "contact": {
+    "addressLine1": "Melbourne, Victoria",
+    "addressLine2": "Australia (address placeholder)",
+    "phone": "+61 (0)3 0000 0000",
+    "email": "hello@rooute-edu-immi.com",
+    "hoursWeekday": {
+      "zh": "周一至周五：09:00 – 18:00",
+      "en": "Monday – Friday: 09:00 – 18:00"
+    },
+    "hoursSaturday": {
+      "zh": "周六：10:00 – 15:00",
+      "en": "Saturday: 10:00 – 15:00"
+    },
+    "hoursSunday": {
+      "zh": "周日：预约咨询",
+      "en": "Sunday: By appointment"
+    }
+  },
+  "formspreeEndpoint": "https://formspree.io/f/YOUR_FORM_ID",
+  "mapEmbedQuery": "Melbourne+Victoria+Australia"
+}

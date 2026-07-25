@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../PageHero.astro";
+import CallToActionSection from "../CallToActionSection.astro";
+import Icon from "../Icon.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import aboutHero from "../../assets/about-main.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const a = t(locale).about;
+const icons = ["star", "users", "book", "check"] as const;
+---
+
+<Layout locale={locale} title={a.metaTitle} description={a.metaDescription}>
+  <PageHero
+    title={a.heroTitle}
+    description={a.heroDescription}
+    image={aboutHero}
+  />
+
+  <section
+    class="section bg-gradient-to-b from-theme-primary-lighter/20 via-theme-primary-lighter/10 to-theme-surface"
+  >
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-theme-text-primary mb-4">
+          {a.valuesTitle}
+        </h2>
+        <p class="text-lg text-theme-text-secondary max-w-3xl mx-auto">
+          {a.valuesSubtitle}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {
+          a.values.map((value, i) => (
+            <div class="bg-theme-surface rounded-2xl p-8 border border-theme-border shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-theme-primary-lighter/25 flex items-center justify-center mb-5">
+                <Icon name={icons[i]} size="lg" class="text-theme-primary" />
+              </div>
+              <h3 class="text-xl font-bold text-theme-text-primary mb-3">
+                {value.title}
+              </h3>
+              <p class="text-theme-text-secondary leading-relaxed">{value.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-theme-surface">
+    <div class="container">
+      <div class="narrow mx-auto">
+        <h2 class="text-3xl font-bold mb-6">{a.whoTitle}</h2>
+        <p class="text-lg text-theme-text-secondary mb-8 leading-relaxed">
+          {a.whoBody}
+        </p>
+        <ul class="space-y-4">
+          {
+            a.whoPoints.map((point) => (
+              <li class="flex items-start gap-3">
+                <Icon name="check" size="sm" class="text-theme-primary mt-1" />
+                <span class="text-theme-text-secondary text-lg">{point}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CallToActionSection
+    heading={a.ctaHeading}
+    subheading={a.ctaSubheading}
+    primaryButtonText={a.ctaButton}
+    primaryButtonLink={localizedPath(locale, "/contact/")}
+  />
+</Layout>

@@ -1,0 +1,107 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../PageHero.astro";
+import CallToActionSection from "../CallToActionSection.astro";
+import ServiceCard from "../ServiceCard.astro";
+import Heading from "../Heading.astro";
+import CheckListItem from "../CheckListItem.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import heroServices from "../../assets/hero-services.jpg";
+import portrait from "../../assets/professional-portrait.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).services;
+---
+
+<Layout locale={locale} title={s.metaTitle} description={s.metaDescription}>
+  <PageHero
+    title={s.heroTitle}
+    description={s.heroDescription}
+    image={heroServices}
+  />
+
+  <section
+    class="section bg-gradient-to-b from-theme-surface to-theme-surface-muted"
+  >
+    <div class="container">
+      <div class="narrow mx-auto text-center space-y-6">
+        <Heading level="h2" align="center">{s.missionTitle}</Heading>
+        <p class="text-lg lg:text-xl text-theme-text-secondary leading-relaxed">
+          {s.missionBody1}
+        </p>
+        <p class="text-base lg:text-lg text-theme-text-secondary leading-relaxed">
+          {s.missionBody2}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section bg-gradient-to-b from-theme-surface-muted to-theme-surface"
+  >
+    <div class="container">
+      <div class="narrow mx-auto text-center mb-12">
+        <Heading level="h2" align="center" class="mb-4">{s.listTitle}</Heading>
+        <p class="text-base lg:text-lg text-theme-text-secondary">
+          {s.listSubtitle}
+        </p>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto"
+      >
+        {
+          s.items.map((item) => (
+            <div class="space-y-3">
+              <ServiceCard title={item.title} />
+              <p class="text-theme-text-secondary text-sm leading-relaxed px-1">
+                {item.summary}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-theme-surface">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+        <div class="w-full order-2 lg:order-1">
+          <Image
+            src={portrait}
+            alt=""
+            class="w-full object-cover rounded-2xl shadow-xl"
+          />
+        </div>
+        <div class="space-y-6 order-1 lg:order-2">
+          <Heading level="h2">{s.approachTitle}</Heading>
+          <p
+            class="text-base lg:text-lg text-theme-text-secondary leading-relaxed"
+          >
+            {s.approachBody}
+          </p>
+          <ul class="space-y-3">
+            {
+              s.approachPoints.map((point) => (
+                <CheckListItem>{point}</CheckListItem>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToActionSection
+    heading={s.ctaHeading}
+    subheading={s.ctaSubheading}
+    primaryButtonText={s.ctaButton}
+    primaryButtonLink={localizedPath(locale, "/contact/")}
+  />
+</Layout>

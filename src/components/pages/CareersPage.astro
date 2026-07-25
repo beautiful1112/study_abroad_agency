@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../PageHero.astro";
+import CallToActionSection from "../CallToActionSection.astro";
+import Icon from "../Icon.astro";
+import CheckListItem from "../CheckListItem.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import teamImage from "../../assets/team-professionals.jpg";
+import staffImage from "../../assets/professional-staff.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale).careers;
+---
+
+<Layout locale={locale} title={c.metaTitle} description={c.metaDescription}>
+  <PageHero
+    title={c.heroTitle}
+    description={c.heroDescription}
+    image={teamImage}
+  />
+
+  <section
+    class="section bg-gradient-to-b from-theme-surface-muted to-theme-surface"
+  >
+    <div class="container">
+      <div class="flex flex-wrap items-center gap-12 lg:gap-16 justify-center">
+        <div class="w-full lg:w-5/12 mx-auto">
+          <div class="flex items-center mb-6">
+            <div
+              class="p-4 text-center inline-flex items-center justify-center w-14 h-14 bg-theme-primary-lighter/20 rounded-xl mr-4"
+            >
+              <Icon name="users" size="lg" class="text-theme-primary w-7 h-7" />
+            </div>
+            <h2
+              class="text-2xl lg:text-3xl font-bold text-theme-text-primary leading-tight"
+            >
+              {c.introTitle}
+            </h2>
+          </div>
+          <p
+            class="text-base lg:text-lg font-light leading-relaxed mb-6 text-theme-text-secondary"
+          >
+            {c.introBody1}
+          </p>
+          <p
+            class="text-base lg:text-lg font-light leading-relaxed text-theme-text-secondary"
+          >
+            {c.introBody2}
+          </p>
+        </div>
+        <div class="w-full lg:w-5/12 mx-auto">
+          <div
+            class="relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
+          >
+            <Image alt="" src={staffImage} class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-theme-surface">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">{c.rolesTitle}</h2>
+        <p class="text-theme-text-secondary text-lg">{c.rolesSubtitle}</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {
+          c.roles.map((role) => (
+            <div class="rounded-2xl border border-theme-border p-8 bg-theme-surface-muted/50">
+              <h3 class="text-xl font-bold text-theme-primary mb-3">
+                {role.title}
+              </h3>
+              <p class="text-theme-text-secondary leading-relaxed">{role.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-theme-surface-muted">
+    <div class="container">
+      <div class="narrow mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">{c.benefitsTitle}</h2>
+        <ul class="space-y-4 max-w-2xl mx-auto">
+          {
+            c.benefits.map((benefit) => (
+              <CheckListItem>{benefit}</CheckListItem>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CallToActionSection
+    heading={c.ctaHeading}
+    subheading={c.ctaSubheading}
+    primaryButtonText={c.ctaButton}
+    primaryButtonLink={localizedPath(locale, "/contact/")}
+  />
+</Layout>
