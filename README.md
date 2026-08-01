@@ -53,25 +53,19 @@ The contact form posts to Formspree (static-friendly, no server runtime).
 
 Until configured, the form shows a setup message instead of submitting.
 
-## Cloudflare Pages (static)
-
-No Cloudflare adapter is required — Astro builds a fully static `dist/`.
+## Cloudflare Pages / Workers (static)
 
 | Setting | Value |
 |---------|--------|
-| Framework preset | Astro (or None) |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node version | `22` (see `.nvmrc`) |
+| Build output / assets | `dist` (see [`wrangler.jsonc`](wrangler.jsonc)) |
+| Node version | `22` (see `.node-version`) |
 
-### Deploy steps
+If your project uses **Deploy command** `npx wrangler versions upload`, keep [`wrangler.jsonc`](wrangler.jsonc) so Wrangler uploads `./dist` as static assets.
 
-1. Push this repo to GitHub
-2. In Cloudflare Dashboard → **Workers & Pages** → Create → Pages → Connect Git
-3. Select the repo and apply the build settings above
-4. After the first deploy, add custom domain `rooute-edu-immi.com` (and `www` → apex redirect) in Pages domain settings
+Do **not** leave Deploy command as bare `npx wrangler versions upload` without `wrangler.jsonc` — that fails with “Missing entry-point to Worker script or to assets directory”.
 
-Security headers are in [`public/_headers`](public/_headers).
+Alternatively, in classic Pages settings: set **Build output directory** to `dist` and clear any custom deploy command.
 
 ## Project structure (key paths)
 
