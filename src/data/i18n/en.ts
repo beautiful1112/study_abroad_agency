@@ -10,6 +10,7 @@ export const en: Dictionary = {
       { label: 'Home', href: '/', icon: 'home' },
       { label: 'About Us', href: '/about/', icon: 'info' },
       { label: 'Services', href: '/services/', icon: 'clipboard' },
+      { label: 'Articles', href: '/articles/', icon: 'document' },
       { label: 'Careers', href: '/careers/', icon: 'users' },
       { label: 'Info', href: '/info/', icon: 'book' },
     ],
@@ -235,12 +236,14 @@ export const en: Dictionary = {
     heroDescription:
       'Tell us your goal—study, migration, or family reunification. We will reply and arrange a consultation.',
     intro:
-      'Leave your details and a short summary. We typically respond on business days. Contact details can be updated anytime in the site configuration.',
+      'Leave your details and a short summary. Use the applications inbox for application materials, and the client support inbox for general enquiries. We typically respond on business days.',
     addressLabel: 'Address',
     contactLabel: 'Contact',
     hoursLabel: 'Hours',
     phonePrefix: 'Phone: ',
     emailPrefix: 'Email: ',
+    applicationEmailsLabel: 'Applications inbox',
+    clientEmailsLabel: 'Client support inbox',
     formTitle: 'Send a message',
     nameLabel: 'Name',
     namePlaceholder: 'Your name',
@@ -253,6 +256,20 @@ export const en: Dictionary = {
       'Submissions go through Formspree. Configure your Formspree form ID before launch (see README).',
     formSuccess: 'Submitted. We will get back to you soon.',
     mapTitle: 'Office area map (Melbourne placeholder)',
+  },
+  articles: {
+    metaTitle: 'Articles | Rooute Education & Migration',
+    metaDescription:
+      'Introductory and process guides on Australian study and migration pathways, including student visas, skilled migration, and employer sponsorship.',
+    heroTitle: 'Guides & articles',
+    heroDescription:
+      'Practical overviews and process explainers to help you understand common Australian study and migration pathways. General information only—always verify against official sources.',
+    readMore: 'Read more',
+    backToList: 'Back to articles',
+    categoryProcess: 'Process guide',
+    categoryIntro: 'Pathway overview',
+    disclaimer:
+      'This article is general educational information only and is not immigration legal advice or a promise of outcomes. Policies change—verify with the Department of Home Affairs and licensed professionals where appropriate.',
   },
   notFound: {
     metaTitle: 'Page Not Found | Rooute',

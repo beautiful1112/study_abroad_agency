@@ -13,7 +13,15 @@
     "addressLine1": "Melbourne, Victoria",
     "addressLine2": "Australia (address placeholder)",
     "phone": "+61 (0)3 0000 0000",
-    "email": "hello@rooute-edu-immi.com",
+    "email": "client01@rooute-edu-immi.com",
+    "applicationEmails": [
+      "applicantion01@rooute-edu-immi.com",
+      "applicantion02@rooute-edu-immi.com"
+    ],
+    "clientEmails": [
+      "client01@rooute-edu-immi.com",
+      "client02@rooute-edu-immi.com"
+    ],
     "hoursWeekday": {
       "zh": "周一至周五：09:00 – 18:00",
       "en": "Monday – Friday: 09:00 – 18:00"

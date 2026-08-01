@@ -136,6 +136,8 @@ export interface Dictionary {
     hoursLabel: string;
     phonePrefix: string;
     emailPrefix: string;
+    applicationEmailsLabel: string;
+    clientEmailsLabel: string;
     formTitle: string;
     nameLabel: string;
     namePlaceholder: string;
@@ -147,6 +149,17 @@ export interface Dictionary {
     formNote: string;
     formSuccess: string;
     mapTitle: string;
+  };
+  articles: {
+    metaTitle: string;
+    metaDescription: string;
+    heroTitle: string;
+    heroDescription: string;
+    readMore: string;
+    backToList: string;
+    categoryProcess: string;
+    categoryIntro: string;
+    disclaimer: string;
   };
   notFound: {
     metaTitle: string;

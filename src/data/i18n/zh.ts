@@ -10,6 +10,7 @@ export const zh: Dictionary = {
       { label: '首页', href: '/', icon: 'home' },
       { label: '关于我们', href: '/about/', icon: 'info' },
       { label: '服务项目', href: '/services/', icon: 'clipboard' },
+      { label: '资讯文章', href: '/articles/', icon: 'document' },
       { label: '加入我们', href: '/careers/', icon: 'users' },
       { label: '常见问题', href: '/info/', icon: 'book' },
     ],
@@ -232,12 +233,14 @@ export const zh: Dictionary = {
     heroDescription:
       '告诉我们你的目标——留学、移民或家庭团聚。我们会尽快回复并安排咨询。',
     intro:
-      '请留下联系方式与基本情况。我们通常在工作日内回复。联系信息可在 site 配置中随时更新。',
+      '请留下联系方式与基本情况。申请材料可发至申请邮箱，日常咨询请使用客服邮箱。我们通常在工作日内回复。',
     addressLabel: '地址',
     contactLabel: '联系方式',
     hoursLabel: '服务时间',
     phonePrefix: '电话：',
     emailPrefix: '邮箱：',
+    applicationEmailsLabel: '申请与材料邮箱',
+    clientEmailsLabel: '客服咨询邮箱',
     formTitle: '发送留言',
     nameLabel: '姓名',
     namePlaceholder: '您的姓名',
@@ -249,6 +252,20 @@ export const zh: Dictionary = {
     formNote: '表单通过 Formspree 提交。请在部署前于 README 中配置你的 Formspree 表单 ID。',
     formSuccess: '已提交，我们会尽快与您联系。',
     mapTitle: '办公区域示意（墨尔本占位）',
+  },
+  articles: {
+    metaTitle: '资讯文章 | 趣袋鼠',
+    metaDescription:
+      '趣袋鼠整理的澳大利亚留学与移民介绍、流程类文章，帮助你了解学生签证、技术移民与雇主担保等常见路径。',
+    heroTitle: '资讯与流程指南',
+    heroDescription:
+      '这里汇总留学与移民相关的介绍与流程说明，帮助你更快建立整体认知。内容仅供一般参考，政策以官方最新规定为准。',
+    readMore: '阅读全文',
+    backToList: '返回文章列表',
+    categoryProcess: '流程指南',
+    categoryIntro: '路径介绍',
+    disclaimer:
+      '本文为一般性教育信息，不构成移民法律意见或结果承诺。签证政策会调整，请以澳大利亚内政部官网及持牌专业人士意见为准。',
   },
   notFound: {
     metaTitle: '页面未找到 | 趣袋鼠',

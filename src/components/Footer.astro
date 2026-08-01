@@ -62,7 +62,32 @@ const ctaHref = localizedPath(locale, "/contact/");
         <div class="w-8 text-center mt-1">
           <Icon name="email" size="sm" class="text-white/60 mx-auto" />
         </div>
-        <p class="ml-3 text-sm">{site.contact.email}</p>
+        <div class="ml-3 text-sm space-y-3">
+          <div>
+            <p class="text-white/70 mb-1">{dict.contact.applicationEmailsLabel}</p>
+            {
+              site.contact.applicationEmails.map((email) => (
+                <p>
+                  <a class="hover:text-white/80" href={`mailto:${email}`}>
+                    {email}
+                  </a>
+                </p>
+              ))
+            }
+          </div>
+          <div>
+            <p class="text-white/70 mb-1">{dict.contact.clientEmailsLabel}</p>
+            {
+              site.contact.clientEmails.map((email) => (
+                <p>
+                  <a class="hover:text-white/80" href={`mailto:${email}`}>
+                    {email}
+                  </a>
+                </p>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
 

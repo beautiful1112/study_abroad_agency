@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../PageHero.astro";
+import Link from "../Link.astro";
+import type { Locale } from "../../types/i18n";
+import { localizedPath, t } from "../../lib/i18n";
+import { getArticles } from "../../data/articles";
+import heroImage from "../../assets/service-detail.jpg";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const a = t(locale).articles;
+const list = getArticles();
+---
+
+<Layout locale={locale} title={a.metaTitle} description={a.metaDescription}>
+  <PageHero
+    title={a.heroTitle}
+    description={a.heroDescription}
+    image={heroImage}
+  />
+
+  <section class="section bg-theme-surface">
+    <div class="container">
+      <div class="grid gap-6 md:gap-8 max-w-5xl mx-auto">
+        {
+          list.map((article) => {
+            const content = article[locale];
+            const categoryLabel =
+              article.category === "process"
+                ? a.categoryProcess
+                : a.categoryIntro;
+            return (
+              <article class="rounded-2xl border border-theme-border bg-theme-surface-muted/40 p-6 md:p-8 hover:border-theme-primary/40 transition-colors">
+                <div class="flex flex-wrap items-center gap-3 mb-3 text-sm">
+                  <span class="font-semibold text-theme-primary">
+                    {categoryLabel}
+                  </span>
+                  <span class="text-theme-text-muted">{article.date}</span>
+                </div>
+                <h2 class="text-2xl font-bold text-theme-text-primary mb-3">
+                  {content.title}
+                </h2>
+                <p class="text-theme-text-secondary leading-relaxed mb-5">
+                  {content.description}
+                </p>
+                <Link
+                  href={localizedPath(locale, `/articles/${article.slug}/`)}
+                >
+                  {a.readMore}
+                </Link>
+              </article>
+            );
+          })
+        }
+      </div>
+      <p class="max-w-5xl mx-auto mt-10 text-sm text-theme-text-muted leading-relaxed">
+        {a.disclaimer}
+      </p>
+    </div>
+  </section>
+</Layout>
