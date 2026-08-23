@@ -35,6 +35,7 @@
       "en": "Sunday: By appointment"
     }
   },
+  "feishuFormUrl": "https://vgp566halk.feishu.cn/share/base/form/shrcnaXynEIjv9QtXjbjWVKENkd",
   "formspreeEndpoint": "https://formspree.io/f/YOUR_FORM_ID",
   "mapEmbedQuery": "333+Queen+Street+Melbourne+VIC+3000"
 }

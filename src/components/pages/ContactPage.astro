@@ -156,84 +156,33 @@ const mapSrc = `https://maps.google.com/maps?q=${site.mapEmbedQuery}&t=&z=12&ie=
           </div>
 
           <div
-            class="bg-white rounded-2xl shadow-xl p-8 md:p-10 h-full border border-theme-border hover:shadow-2xl transition-shadow duration-300"
+            class="bg-white rounded-2xl shadow-xl p-6 md:p-8 h-full border border-theme-border hover:shadow-2xl transition-shadow duration-300 flex flex-col"
             id="form"
           >
-            <h2 class="mb-6 text-2xl font-bold text-theme-text-primary">
+            <h2 class="mb-4 text-2xl font-bold text-theme-text-primary">
               {c.formTitle}
             </h2>
-            <form
-              id="contactForm"
-              action={site.formspreeEndpoint}
-              method="POST"
+            <div
+              class="flex-1 min-h-[720px] rounded-xl overflow-hidden border border-theme-border-medium bg-theme-surface-muted"
             >
-              <input type="hidden" name="_subject" value="Rooute website enquiry" />
-              <div class="mb-6">
-                <div class="mx-0 mb-1 sm:mb-4">
-                  <label
-                    for="name"
-                    class="block pb-2 text-xs font-semibold uppercase tracking-wider text-theme-text-primary"
-                    >{c.nameLabel}</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    autocomplete="name"
-                    placeholder={c.namePlaceholder}
-                    class="mb-2 w-full rounded-lg bg-white ring-1 ring-theme-border-medium focus:ring-2 focus:ring-theme-primary focus:outline-none py-3 pl-4 pr-4 text-theme-text-primary sm:mb-0 transition-all duration-200"
-                    name="name"
-                    required
-                  />
-                </div>
-                <div class="mx-0 mb-1 sm:mb-4">
-                  <label
-                    for="email"
-                    class="block pb-2 text-xs font-semibold uppercase tracking-wider text-theme-text-primary"
-                    >{c.emailLabel}</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    autocomplete="email"
-                    placeholder={c.emailPlaceholder}
-                    class="mb-2 w-full rounded-lg bg-white ring-1 ring-theme-border-medium focus:ring-2 focus:ring-theme-primary focus:outline-none py-3 pl-4 pr-4 text-theme-text-primary sm:mb-0 transition-all duration-200"
-                    name="email"
-                    required
-                  />
-                </div>
-                <div class="mx-0 mb-1 sm:mb-4">
-                  <label
-                    for="message"
-                    class="block pb-2 text-xs font-semibold uppercase tracking-wider text-theme-text-primary"
-                    >{c.messageLabel}</label
-                  >
-                  <textarea
-                    id="message"
-                    name="message"
-                    cols="30"
-                    rows="5"
-                    placeholder={c.messagePlaceholder}
-                    required
-                    class="mb-2 w-full rounded-lg bg-white ring-1 ring-theme-border-medium focus:ring-2 focus:ring-theme-primary focus:outline-none py-3 pl-4 pr-4 text-theme-text-primary sm:mb-0 transition-all duration-200"
-                  ></textarea>
-                </div>
-              </div>
-              <div class="text-center">
-                <button
-                  type="submit"
-                  class="w-full bg-theme-primary hover:bg-theme-primary-dark text-white px-6 py-3 text-lg font-semibold rounded-lg sm:mb-0 transition-all duration-300 hover:shadow-lg"
-                  >{c.submit}</button
-                >
-              </div>
-              <p
-                id="contactFormStatus"
-                class="mt-3 text-sm font-medium text-theme-primary"
-                role="status"
-                aria-live="polite"
-                data-success={c.formSuccess}
+              <iframe
+                src={site.feishuFormUrl}
+                title={c.formIframeTitle}
+                class="w-full h-full min-h-[720px] border-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p class="mt-4 text-center text-sm text-theme-text-muted">
+              <a
+                href={site.feishuFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-theme-primary hover:text-theme-primary-dark underline-offset-2 hover:underline"
               >
-              </p>
-            </form>
+                {c.formOpenInNewTab}
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -255,48 +204,3 @@ const mapSrc = `https://maps.google.com/maps?q=${site.mapEmbedQuery}&t=&z=12&ie=
     </div>
   </section>
 </Layout>
-
-<script>
-  function setupContactForm() {
-    const form = document.getElementById("contactForm") as HTMLFormElement | null;
-    const status = document.getElementById("contactFormStatus");
-    if (!form || !status || form.dataset.bound === "true") return;
-
-    form.dataset.bound = "true";
-    const endpoint = form.getAttribute("action") || "";
-    const isConfigured = endpoint.includes("formspree.io") && !endpoint.includes("YOUR_FORM_ID");
-
-    form.addEventListener("submit", async (event) => {
-      if (!isConfigured) {
-        event.preventDefault();
-        status.textContent =
-          status.dataset.success ||
-          "Configure Formspree in src/data/site.json to enable submissions.";
-        return;
-      }
-
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-
-      const data = new FormData(form);
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          body: data,
-          headers: { Accept: "application/json" },
-        });
-        if (response.ok) {
-          status.textContent = status.dataset.success || "Submitted.";
-          form.reset();
-        } else {
-          status.textContent = "Something went wrong. Please email us directly.";
-        }
-      } catch {
-        status.textContent = "Network error. Please try again or email us.";
-      }
-    });
-  }
-
-  setupContactForm();
-  document.addEventListener("astro:page-load", setupContactForm);
-</script>

@@ -139,14 +139,8 @@ export interface Dictionary {
     applicationEmailsLabel: string;
     clientEmailsLabel: string;
     formTitle: string;
-    nameLabel: string;
-    namePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    messageLabel: string;
-    messagePlaceholder: string;
-    submit: string;
-    formSuccess: string;
+    formIframeTitle: string;
+    formOpenInNewTab: string;
     mapTitle: string;
   };
   articles: {
