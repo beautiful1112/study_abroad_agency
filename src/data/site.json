@@ -10,9 +10,9 @@
     "en": "Going Abroad · Study Abroad · Migration"
   },
   "contact": {
-    "addressLine1": "Melbourne, Victoria",
-    "addressLine2": "Australia (address placeholder)",
-    "phone": "+61 (0)3 0000 0000",
+    "addressLine1": "Level 4, 333 Queen Street",
+    "addressLine2": "Melbourne VIC 3000, Australia",
+    "phone": "0478 520 666",
     "email": "client01@rooute-edu-immi.com",
     "applicationEmails": [
       "applicantion01@rooute-edu-immi.com",
@@ -36,5 +36,5 @@
     }
   },
   "formspreeEndpoint": "https://formspree.io/f/YOUR_FORM_ID",
-  "mapEmbedQuery": "Melbourne+Victoria+Australia"
+  "mapEmbedQuery": "333+Queen+Street+Melbourne+VIC+3000"
 }

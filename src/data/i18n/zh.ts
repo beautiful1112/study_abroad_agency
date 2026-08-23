@@ -249,9 +249,8 @@ export const zh: Dictionary = {
     messageLabel: '留言',
     messagePlaceholder: '请简述您的目标与问题…',
     submit: '发送',
-    formNote: '表单通过 Formspree 提交。请在部署前于 README 中配置你的 Formspree 表单 ID。',
     formSuccess: '已提交，我们会尽快与您联系。',
-    mapTitle: '办公区域示意（墨尔本占位）',
+    mapTitle: '办公地址地图 — 墨尔本 Queen Street 333',
   },
   articles: {
     metaTitle: '资讯文章 | 趣袋鼠',

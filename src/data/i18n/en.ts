@@ -252,10 +252,8 @@ export const en: Dictionary = {
     messageLabel: 'Message',
     messagePlaceholder: 'Briefly describe your goals and questions…',
     submit: 'Send Message',
-    formNote:
-      'Submissions go through Formspree. Configure your Formspree form ID before launch (see README).',
     formSuccess: 'Submitted. We will get back to you soon.',
-    mapTitle: 'Office area map (Melbourne placeholder)',
+    mapTitle: 'Office map — Level 4, 333 Queen Street, Melbourne',
   },
   articles: {
     metaTitle: 'Articles | Rooute Education & Migration',

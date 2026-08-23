@@ -146,7 +146,6 @@ export interface Dictionary {
     messageLabel: string;
     messagePlaceholder: string;
     submit: string;
-    formNote: string;
     formSuccess: string;
     mapTitle: string;
   };
