@@ -25,6 +25,13 @@ export const zh: Dictionary = {
     disclaimer:
       '本网站内容仅供一般参考，不构成移民法律意见。具体签证结果以澳大利亚内政部及注册移民代理意见为准。',
   },
+  memberships: {
+    title: '专业资质',
+    body: '我们的移民代理已在 OMARA 注册，并加入 MIA 与 Migration Alliance。',
+    omaraAlt: '澳大利亚移民代理注册管理局（OMARA）',
+    miaAlt: '澳大利亚移民协会（MIA）会员',
+    maAlt: 'Migration Alliance 会员',
+  },
   home: {
     metaTitle: '趣袋鼠 | 澳大利亚留学与移民咨询',
     metaDescription:
@@ -234,7 +241,6 @@ export const zh: Dictionary = {
       '告诉我们你的目标——留学、移民或家庭团聚。我们会尽快回复并安排咨询。',
     intro:
       '请留下联系方式与基本情况。申请材料可发至申请邮箱，日常咨询请使用客服邮箱。我们通常在工作日内回复。',
-    addressLabel: '地址',
     contactLabel: '联系方式',
     hoursLabel: '服务时间',
     phonePrefix: '电话：',
@@ -244,7 +250,6 @@ export const zh: Dictionary = {
     formTitle: '预约咨询',
     formIframeTitle: '客户线索咨询表单',
     formOpenInNewTab: '若表单未正常显示，请在新窗口打开填写',
-    mapTitle: '办公地址地图 — 墨尔本 Queen Street 333',
   },
   articles: {
     metaTitle: '资讯文章 | 趣袋鼠',

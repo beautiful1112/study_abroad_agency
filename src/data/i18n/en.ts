@@ -25,6 +25,13 @@ export const en: Dictionary = {
     disclaimer:
       'Information on this website is general only and is not immigration legal advice. Outcomes depend on official policy and individual circumstances.',
   },
+  memberships: {
+    title: 'Memberships & Registration',
+    body: 'Our migration agents are registered with OMARA and are members of MIA and Migration Alliance.',
+    omaraAlt: 'Office of the Migration Agents Registration Authority (OMARA)',
+    miaAlt: 'Migration Institute of Australia (MIA) member',
+    maAlt: 'Migration Alliance member',
+  },
   home: {
     metaTitle: 'Rooute Education & Migration | Study & Migrate to Australia',
     metaDescription:
@@ -237,7 +244,6 @@ export const en: Dictionary = {
       'Tell us your goal—study, migration, or family reunification. We will reply and arrange a consultation.',
     intro:
       'Leave your details and a short summary. Use the applications inbox for application materials, and the client support inbox for general enquiries. We typically respond on business days.',
-    addressLabel: 'Address',
     contactLabel: 'Contact',
     hoursLabel: 'Hours',
     phonePrefix: 'Phone: ',
@@ -247,7 +253,6 @@ export const en: Dictionary = {
     formTitle: 'Book a consultation',
     formIframeTitle: 'Client enquiry form',
     formOpenInNewTab: 'If the form does not load, open it in a new tab',
-    mapTitle: 'Office map — Level 4, 333 Queen Street, Melbourne',
   },
   articles: {
     metaTitle: 'Articles | Rooute Education & Migration',

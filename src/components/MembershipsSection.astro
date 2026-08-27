@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import type { Locale } from "../types/i18n";
+import { t } from "../lib/i18n";
+import omaraLogo from "../assets/memberships/omara.png";
+import miaLogo from "../assets/memberships/mia.png";
+import maLogo from "../assets/memberships/migration-alliance.png";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const m = t(locale).memberships;
+
+const items = [
+  {
+    name: "OMARA",
+    href: "https://www.mara.gov.au/",
+    logo: omaraLogo,
+    alt: m.omaraAlt,
+  },
+  {
+    name: "MIA",
+    href: "https://www.mia.org.au/",
+    logo: miaLogo,
+    alt: m.miaAlt,
+  },
+  {
+    name: "Migration Alliance",
+    href: "https://migrationalliance.com.au/",
+    logo: maLogo,
+    alt: m.maAlt,
+  },
+] as const;
+---
+
+<section
+  class="section bg-gradient-to-b from-theme-surface-muted to-theme-surface"
+  aria-labelledby="memberships-heading"
+>
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+      <h2
+        id="memberships-heading"
+        class="text-3xl lg:text-4xl font-bold text-theme-text-primary mb-4"
+      >
+        {m.title}
+      </h2>
+      <p class="text-lg text-theme-text-secondary leading-relaxed">
+        {m.body}
+      </p>
+    </div>
+
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto list-none p-0 m-0"
+    >
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex h-full min-h-[140px] items-center justify-center rounded-xl border border-theme-border bg-white px-6 py-8 transition-all duration-300 hover:border-theme-primary/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-primary"
+              aria-label={item.alt}
+            >
+              <Image
+                src={item.logo}
+                alt={item.alt}
+                class="max-h-16 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                widths={[200, 320, 480]}
+                sizes="(max-width: 640px) 80vw, 240px"
+                loading="lazy"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

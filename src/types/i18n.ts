@@ -33,6 +33,13 @@ export interface Dictionary {
     description: string;
     disclaimer: string;
   };
+  memberships: {
+    title: string;
+    body: string;
+    omaraAlt: string;
+    miaAlt: string;
+    maAlt: string;
+  };
   home: {
     metaTitle: string;
     metaDescription: string;
@@ -131,7 +138,6 @@ export interface Dictionary {
     heroTitle: string;
     heroDescription: string;
     intro: string;
-    addressLabel: string;
     contactLabel: string;
     hoursLabel: string;
     phonePrefix: string;
@@ -141,7 +147,6 @@ export interface Dictionary {
     formTitle: string;
     formIframeTitle: string;
     formOpenInNewTab: string;
-    mapTitle: string;
   };
   articles: {
     metaTitle: string;
