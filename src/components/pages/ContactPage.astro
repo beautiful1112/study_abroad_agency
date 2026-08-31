@@ -1,10 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../PageHero.astro";
+import { Image } from "astro:assets";
 import type { Locale } from "../../types/i18n";
 import { t } from "../../lib/i18n";
 import site from "../../data/site.json";
 import contactImage from "../../assets/contact-image.jpg";
+import wechatQr from "../../assets/wechat-qr.jpg";
 
 interface Props {
   locale: Locale;
@@ -131,32 +133,29 @@ const hoursSunday =
           </div>
 
           <div
-            class="bg-white rounded-2xl shadow-xl p-6 md:p-8 h-full border border-theme-border hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+            class="bg-white rounded-2xl shadow-xl p-6 md:p-8 h-full border border-theme-border hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center justify-center text-center"
             id="form"
           >
-            <h2 class="mb-4 text-2xl font-bold text-theme-text-primary">
+            <h2 class="mb-2 text-2xl font-bold text-theme-text-primary">
               {c.formTitle}
             </h2>
+            <p class="mb-6 text-sm text-theme-text-secondary max-w-sm">
+              {c.formQrHint}
+            </p>
             <div
-              class="flex-1 min-h-[720px] rounded-xl overflow-hidden border border-theme-border-medium bg-theme-surface-muted"
+              class="rounded-xl border border-theme-border-medium bg-white p-4 shadow-sm"
             >
-              <iframe
-                src={site.feishuFormUrl}
-                title={c.formIframeTitle}
-                class="w-full h-full min-h-[720px] border-0"
+              <Image
+                src={wechatQr}
+                alt={c.formQrAlt}
+                class="w-64 max-w-full h-auto mx-auto"
+                widths={[256, 320, 400]}
+                sizes="256px"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              />
             </div>
-            <p class="mt-4 text-center text-sm text-theme-text-muted">
-              <a
-                href={site.feishuFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-theme-primary hover:text-theme-primary-dark underline-offset-2 hover:underline"
-              >
-                {c.formOpenInNewTab}
-              </a>
+            <p class="mt-5 text-sm text-theme-text-muted max-w-xs">
+              {c.formQrCaption}
             </p>
           </div>
         </div>

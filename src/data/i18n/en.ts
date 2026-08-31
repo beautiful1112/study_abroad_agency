@@ -28,7 +28,8 @@ export const en: Dictionary = {
   memberships: {
     title: 'Memberships & Registration',
     body: 'Our migration agents are registered with OMARA and are members of MIA and Migration Alliance.',
-    omaraAlt: 'Office of the Migration Agents Registration Authority (OMARA)',
+    marnLabel: 'Migration agent registration number',
+    marnAlt: 'Migration Agents Registration Number (MARN) 2418684',
     miaAlt: 'Migration Institute of Australia (MIA) member',
     maAlt: 'Migration Alliance member',
   },
@@ -250,9 +251,10 @@ export const en: Dictionary = {
     emailPrefix: 'Email: ',
     applicationEmailsLabel: 'Applications inbox',
     clientEmailsLabel: 'Client support inbox',
-    formTitle: 'Book a consultation',
-    formIframeTitle: 'Client enquiry form',
-    formOpenInNewTab: 'If the form does not load, open it in a new tab',
+    formTitle: 'WeChat consultation',
+    formQrHint: 'Scan the QR code to add us on WeChat. We will reply as soon as we can.',
+    formQrAlt: 'Rooute WeChat QR code',
+    formQrCaption: 'Scan the QR code above to connect on WeChat.',
   },
   articles: {
     metaTitle: 'Articles | Rooute Education & Migration',

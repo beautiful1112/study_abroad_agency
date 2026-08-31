@@ -28,7 +28,8 @@ export const zh: Dictionary = {
   memberships: {
     title: '专业资质',
     body: '我们的移民代理已在 OMARA 注册，并加入 MIA 与 Migration Alliance。',
-    omaraAlt: '澳大利亚移民代理注册管理局（OMARA）',
+    marnLabel: '移民代理注册号',
+    marnAlt: '澳大利亚移民代理注册号（MARN）2418684',
     miaAlt: '澳大利亚移民协会（MIA）会员',
     maAlt: 'Migration Alliance 会员',
   },
@@ -247,9 +248,10 @@ export const zh: Dictionary = {
     emailPrefix: '邮箱：',
     applicationEmailsLabel: '申请与材料邮箱',
     clientEmailsLabel: '客服咨询邮箱',
-    formTitle: '预约咨询',
-    formIframeTitle: '客户线索咨询表单',
-    formOpenInNewTab: '若表单未正常显示，请在新窗口打开填写',
+    formTitle: '微信咨询',
+    formQrHint: '扫描二维码添加微信，我们会尽快回复您的咨询。',
+    formQrAlt: '趣袋鼠微信二维码',
+    formQrCaption: '扫一扫上面的二维码图案，加我为朋友。',
   },
   articles: {
     metaTitle: '资讯文章 | 趣袋鼠',

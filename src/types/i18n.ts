@@ -36,7 +36,8 @@ export interface Dictionary {
   memberships: {
     title: string;
     body: string;
-    omaraAlt: string;
+    marnLabel: string;
+    marnAlt: string;
     miaAlt: string;
     maAlt: string;
   };
@@ -145,8 +146,9 @@ export interface Dictionary {
     applicationEmailsLabel: string;
     clientEmailsLabel: string;
     formTitle: string;
-    formIframeTitle: string;
-    formOpenInNewTab: string;
+    formQrHint: string;
+    formQrAlt: string;
+    formQrCaption: string;
   };
   articles: {
     metaTitle: string;
