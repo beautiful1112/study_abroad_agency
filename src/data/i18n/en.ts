@@ -29,7 +29,7 @@ export const en: Dictionary = {
     title: 'Memberships & Registration',
     body: 'Our migration agents are registered with OMARA and are members of MIA and Migration Alliance.',
     marnLabel: 'Migration agent registration number',
-    marnAlt: 'Migration Agents Registration Number (MARN) 2418684',
+    marnAlt: 'Migration Agents Registration Number (MARN) 2418689',
     miaAlt: 'Migration Institute of Australia (MIA) member',
     maAlt: 'Migration Alliance member',
   },

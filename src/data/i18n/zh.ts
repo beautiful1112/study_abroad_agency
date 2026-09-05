@@ -29,7 +29,7 @@ export const zh: Dictionary = {
     title: '专业资质',
     body: '我们的移民代理已在 OMARA 注册，并加入 MIA 与 Migration Alliance。',
     marnLabel: '移民代理注册号',
-    marnAlt: '澳大利亚移民代理注册号（MARN）2418684',
+    marnAlt: '澳大利亚移民代理注册号（MARN）2418689',
     miaAlt: '澳大利亚移民协会（MIA）会员',
     maAlt: 'Migration Alliance 会员',
   },
